@@ -1,0 +1,10 @@
+postgres:
+    image: postgres:9.5.0
+    volumes:
+        - ./sql:/docker-entrypoint-initdb.d
+    env_file: postgres.env
+app:
+    build: .
+    env_file: postgres.env
+    links:
+        - postgres:db
