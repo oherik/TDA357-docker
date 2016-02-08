@@ -8,5 +8,4 @@ start: clean
 	docker-compose up -d postgres
 
 connect: start
-	sleep 5
-	docker-compose run app
+	while ! docker-compose run app; do sleep 0.5; done
