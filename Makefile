@@ -9,3 +9,6 @@ start: clean
 
 connect: start
 	docker-compose run app
+
+error: start
+	docker-compose logs postgres

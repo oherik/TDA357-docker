@@ -7,6 +7,8 @@ You need to have Docker and Docker Compose installed. You also need to have `mak
 ## How to use
 The short version: place your SQL files in the `sql` folder, and run the command `make connect`. **Be warned**: if you run `make connect` and make some changes to the database, *all your changes will be lost!*. Any changes you want to save should be placed in an SQL file in the `sql` folder. See the slightly longer version below for an explanation.
 
+Currently, these bunch of hacks does not give any error indication when there is something wrong in your SQL code. The only indication that things are not working is that it does not connect with `psql` and simply sits there, waiting for all eternity. If that happens, press `Ctrl-C` and run `make error`. It will dump the error messages from the Postgres server -- any errors should be near the bottom of the dump.
+
 The slightly longer version:
 
 Place your SQL files in the `sql` folder, and make sure to name them in the order you want them to run. For example, `001-schema.sql` will run before `002-insert.sql`, which will run before `003-alter.sql`, etc.
